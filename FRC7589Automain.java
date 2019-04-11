@@ -37,8 +37,6 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
-  private SpeedControllerGroup m_LeftMotors ;
-  private SpeedControllerGroup m_RightMotors ;
   private DifferentialDrive m_Drive ;
 
   private XboxController stick;
@@ -55,7 +53,8 @@ public class Robot extends TimedRobot {
   private WPI_VictorSPX vertical1;        
   private WPI_VictorSPX vertical2;        
 
-  private WPI_VictorSPX standard;         
+  private WPI_VictorSPX standard;  
+         
   private SpeedControllerGroup baseleft, baseright;
 
   private WPI_VictorSPX gate1;
@@ -457,8 +456,9 @@ public class Robot extends TimedRobot {
     if(gearbox == 3) light3.set(false);
     else light3.set(true);
 
-      System.out.println(enc.get());
+    System.out.println(enc.get());
 
+    Update_Limelight_Tracking();
     auto = stick2.getAButton();
 
       if (auto)
